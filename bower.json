@@ -1,0 +1,19 @@
+{
+  "name": "Voluntime",
+  "description": "A project for managing volunteer scheduling",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eviltoylet/voluntime",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "angular-route": "1.2.x",
+    "angular-ui-calendar": "~0.8.1"
+    "html5-boilerplate": "~4.3.0",
+  },
+  "resolutions": {
+    "jquery": "~2.x"
+  }
+}
