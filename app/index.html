@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="voluntime">
+<head>
+  <meta charset="utf-8">
+  <title>Voluntime - Volunteer Registry</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="VolunteerListController as volunteerList">
+<h1>Volunteer Registry</h1>
+  <ul>
+    <li ng-repeat="volunteer in volunteerList.volunteers">
+      <div>id: {{volunteer.id}}</div>
+      <div>first name: {{volunteer.firstName}}</div>
+      <div>last name: {{volunteer.lastName}}</div>
+    </li>
+  </ul>
+</body>
+</html>
