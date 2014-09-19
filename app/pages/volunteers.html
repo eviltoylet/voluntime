@@ -1,9 +1,13 @@
 <div class="jumbotron text-center">
   <h1>Volunteers</h1>
 </div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">Volunteers</div>
+<div class="row">
+  <div class="text-right">
+    <input ng-model="query">
+    <i class="fa fa-search"></i>
+  </div>
+</div>
+<div class="row">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="volunteer in volunteers">
+      <tr ng-repeat="volunteer in volunteers | filter:query">
         <td>{{volunteer.id}}</td>
         <td>{{volunteer.firstName}}</td>
         <td>{{volunteer.lastName}}</td>
