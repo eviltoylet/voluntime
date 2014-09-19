@@ -10,7 +10,7 @@
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.x",
     "angular-route": "1.2.x",
-    "angular-ui-calendar": "~0.8.1",
+    "angular-ui-calendar": "latest",
     "bootstrap": "3.2.0",
     "html5-boilerplate": "~4.3.0",
     "jquery": "~2.1.1",

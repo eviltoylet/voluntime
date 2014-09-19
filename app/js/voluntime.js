@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  var voluntime = angular.module('voluntime', ['ngRoute']);
+  var voluntime = angular.module('voluntime', ['ngRoute', 'ui.calendar']);
   
   voluntime.config(function($routeProvider){
     $routeProvider
@@ -16,7 +16,7 @@
   });
   
   voluntime.controller('ScheduleController', function($scope){
-    
+    $scope.eventSources = [];
   });
   
   voluntime.controller('VolunteersController', function($scope){
