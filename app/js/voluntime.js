@@ -16,7 +16,24 @@
   });
   
   voluntime.controller('ScheduleController', function($scope){
+    $scope.changeView = function(date, view) {
+      $scope.volunteerSchedule.fullCalendar('changeView', view);
+      $scope.volunteerSchedule.fullCalendar('gotoDate', date);
+    };
+    
+    $scope.switchToDayView = function(date, event, view) {
+      $scope.changeView(date, 'agendaDay');
+    };
+
     $scope.eventSources = [];
+    $scope.calendarConfig = {
+      dayClick: $scope.switchToDayView,
+      header: {
+        left: 'title',
+        center: '',
+        right: 'today agendaDay,month prev,next'
+      }
+    };
   });
   
   voluntime.controller('VolunteersController', function($scope){
