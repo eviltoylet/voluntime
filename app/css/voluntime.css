@@ -1,1 +1,11 @@
-body { padding-top: 70px; }
+.snap-drawer {
+  padding-top: 70px;
+}
+
+snap-content {
+  background-color: #fff;
+  padding-top: 70px;
+  box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px #888;
+  -moz-box-shadow: 0 0 20px #888;
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  var voluntime = angular.module('voluntime', ['ngRoute', 'ui.calendar']);
+  var voluntime = angular.module('voluntime', ['ngRoute', 'ui.calendar', 'snap']);
   
   voluntime.config(function($routeProvider){
     $routeProvider
