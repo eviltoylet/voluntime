@@ -2,8 +2,7 @@
 
 (function () {
   var voluntime = angular.module('voluntime', ['ngRoute', 'ui.calendar', 'snap']);
-  
-  voluntime.config(function($routeProvider){
+  voluntime.config(function($routeProvider, snapRemoteProvider){
     $routeProvider
     .when('/schedule', {
       templateUrl: 'pages/schedule.html',
@@ -13,6 +12,8 @@
       templateUrl: 'pages/volunteers.html',
       controller: 'VolunteersController'
     });
+    
+    snapRemoteProvider.globalOptions.disable = 'left';
   });
   
   voluntime.controller('ScheduleController', function($scope){
