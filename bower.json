@@ -15,7 +15,8 @@
     "html5-boilerplate": "~4.3.0",
     "jquery": "~2.1.1",
     "font-awesome": "~4.2.0",
-    "angular-snap": "~1.6.0"
+    "angular-snap": "~1.6.0",
+    "jquery-ui": "~1.11.1"
   },
   "resolutions": {
     "jquery": "~2.1.1"

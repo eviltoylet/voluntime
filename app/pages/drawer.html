@@ -1,3 +1,25 @@
 <div snap-drawer="right">
   This is where the volunteers get dragged to!
+  <div class="volunteer-bank">
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 1</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 2</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 3</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 4</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 5</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 6</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 7</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 8</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 9</div>
+    <div class="fc-event ui-draggable ui-draggable-handle" style="z-index: auto; left: 0px; top: 0px;">Volunteer 10</div>
+  </div>
 </div>
+
+<script>
+  $('.volunteer-bank .fc-event').each(function() {
+    $(this).draggable({
+      zIndex: 999,
+      revert: true,
+      revertDuration: 200
+    });
+  });
+</script>

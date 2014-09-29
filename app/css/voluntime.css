@@ -9,3 +9,12 @@ snap-content {
   -webkit-box-shadow: 0 0 20px #888;
   -moz-box-shadow: 0 0 20px #888;
 }
+
+.volunteer-bank {
+  padding: 0 40px;
+}
+
+.volunteer-bank .fc-event {
+  cursor: pointer;
+  margin: 10px 0;
+}
