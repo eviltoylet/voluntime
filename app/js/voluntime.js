@@ -32,6 +32,17 @@
     .when('/volunteers', {
       templateUrl: 'pages/volunteers.html',
       controller: 'VolunteersController'
+    })
+    .when('/login', {
+      templateUrl: 'pages/login.html',
+      controller: 'LoginController'
+    })
+    .when('/splash', {
+      templateUrl: 'pages/splash.html',
+      controller: 'SplashController'
+    })
+    .otherwise({
+      redirectTo: '/splash'
     });
     
     snapRemoteProvider.globalOptions.disable = 'left';
@@ -57,6 +68,12 @@
         right: 'today agendaDay,month prev,next'
       }
     };
+  });
+  
+  voluntime.controller('LoginController', function($scope) {
+  });
+  
+  voluntime.controller('SplashController', function($scope) {
   });
   
   voluntime.controller('VolunteersController', function($scope){
