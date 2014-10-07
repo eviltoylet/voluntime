@@ -41,6 +41,10 @@
       templateUrl: 'pages/splash.html',
       controller: 'SplashController'
     })
+    .when('/signup', {
+      templateUrl: 'pages/signup.html',
+      controller: 'SignupController'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -74,6 +78,9 @@
   });
   
   voluntime.controller('SplashController', function($scope) {
+  });
+  
+  voluntime.controller('SignupController', function($scope) {
   });
   
   voluntime.controller('VolunteersController', function($scope){

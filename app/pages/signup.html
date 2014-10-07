@@ -1,0 +1,30 @@
+<div class="jumbotron text-center">
+  <h1>Signup</h1>
+</div>
+<div>
+  <form name="signupForm">
+    <section>
+      <h2>Contact Information</h2>
+    </section>
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" placeholder="first name (e.g. Bob)" ng-model="firstName"/>
+    </div>
+    <div>
+      <label for="middleName">Middle Name</label>
+      <input id="middleName" type="text" placeholder="middle name (e.g. John)" ng-model="middleName"/>
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" type="text" placeholder="last name (e.g. Noone)" ng-model="lastName"/>
+    </div>
+    <div>
+      <label for="emailAddress">Email Address</label>
+      <input id="emailAddress" type="email" placeholder="email address (e.g. b.noone@virginiamason.org)" ng-model="emailAddress"/>
+    </div>
+  </form>
+</div>
+<div>
+  <h2>Preview</h2>
+  {{firstName}} {{lastName}}
+</div>
