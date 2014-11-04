@@ -26,23 +26,23 @@
   voluntime.config(function($routeProvider, snapRemoteProvider){
     $routeProvider
     .when('/schedule', {
-      templateUrl: 'pages/schedule.html',
+      templateUrl: 'views/schedule.html',
       controller: 'ScheduleController'
     })
     .when('/volunteers', {
-      templateUrl: 'pages/volunteers.html',
+      templateUrl: 'views/volunteers.html',
       controller: 'VolunteersController'
     })
     .when('/login', {
-      templateUrl: 'pages/login.html',
+      templateUrl: 'views/login.html',
       controller: 'LoginController'
     })
     .when('/splash', {
-      templateUrl: 'pages/splash.html',
+      templateUrl: 'views/splash.html',
       controller: 'SplashController'
     })
     .when('/signup', {
-      templateUrl: 'pages/signup.html',
+      templateUrl: 'views/signup.html',
       controller: 'SignupController'
     })
     .otherwise({
