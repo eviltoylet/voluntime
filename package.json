@@ -20,6 +20,7 @@
     "start": "http-server -a localhost -p 8000 -c-1"
   },
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "body-parser": "^1.9.2",
     "express": "^4.10.1",
     "method-override": "^2.3.0",
