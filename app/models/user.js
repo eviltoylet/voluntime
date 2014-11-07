@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-  authenticationSource: String,
-  authenticationIdentifier: String
+  emailAddress: {type: String, required: true, index: {unique: true}},
+  encryptedPassword: {type: String, required: true}
 });
+
 module.exports = mongoose.model('User', userSchema);
