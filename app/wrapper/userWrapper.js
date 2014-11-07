@@ -2,22 +2,15 @@ var User = require('../models/user');
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
-var getExistingOrNew = function(emailAddress) {
+var findExisting = function(emailAddress, foundCallback, notFoundCallback) {
   var existingQuery = User.where({emailAddress: emailAddress});
-  var existing = null;
   existingQuery.findOne(function(err, user) {
-    existing = user;
+    if (user == null) {
+      notFoundCallback(new User({emailAddress: emailAddress}));
+    } else {
+      foundCallback(user);
+    }
   });
-  
-  if (existing == null) {
-    return new User({emailAddress: emailAddress});
-  } else {
-    return existing; 
-  }
-};
-
-var isPersisted = function(user) {
-  return user._id != null;
 }
 
 module.exports.wrapInternal = function(input) {
@@ -25,22 +18,34 @@ module.exports.wrapInternal = function(input) {
 };
 
 module.exports.wrapExternal = function(input) {
-  var save = function () {
-    var user = getExistingOrNew(input.emailAddress);
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+  var save = function (response) {
+    findExisting(input.emailAddress,
+    function existingUser(user) {
+      response.status(409).send({message: "A user with e-mail address " + input.emailAddress + " already exists."});
+    },
+    function createUser(user) {
+      bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
       if (err) {
         console.error(err);
+        response.status(500).send();
       }
       
       bcrypt.hash(input.password, salt, function(err, hash) {
         if (err) {
           console.error(err);
+          response.status(500).send();
         }
         user.encryptedPassword = hash;
-        user.save(function(err) {
-          console.error(err);
+        user.save(function(err, user) {
+          if (err) {
+            console.error(err);
+            response.status(500).send();
+          } else {
+            response.status(200).send(user);
+          }
         });
       });
+    });
     });
   };
   

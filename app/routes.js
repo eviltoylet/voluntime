@@ -16,7 +16,7 @@ module.exports = function(app) {
   app.post('/api/users', function(req, res) {
     // TODO: Figure out how I can do input validation?
     var user = UserWrapper.wrapExternal(req.body);
-    user.save();
+    user.save(res);
   });
   
   app.get('*', function(req, res) {
