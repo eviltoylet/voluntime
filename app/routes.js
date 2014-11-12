@@ -1,6 +1,6 @@
 // app/routes.js
 
-var Profile = require('./models/profile');
+var ProfileWrapper = require('./wrapper/profileWrapper');
 var UserWrapper = require('./wrapper/userWrapper');
 module.exports = function (app) {
   app.get('/api/profiles', function (req, res) {
@@ -11,6 +11,11 @@ module.exports = function (app) {
 
       res.json(profiles);
     });
+  });
+
+  app.post('/api/profiles', function (req, res) {
+    var profile = ProfileWrapper.wrapExternal(req);
+    profile.save(res);
   });
 
   app.post('/api/users', function (req, res) {
