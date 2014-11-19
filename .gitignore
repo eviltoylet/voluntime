@@ -1,3 +1,4 @@
 node_modules/
 public/libs/
 .DS_Store
+config/secrets.js
