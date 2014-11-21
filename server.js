@@ -2,6 +2,8 @@
 
 // modules =================================================
 var express = require('express');
+var cookieParser = require('cookie-parser');
+var cookieSession = require('cookie-session');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -39,6 +41,9 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
+
+app.use(cookieParser(secretsConfig.cookieSecret)); // populates req.signedCookies
+app.use(cookieSession(secretsConfig.sessionSecret)); // populates req.session, needed for CSRF
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
