@@ -4,10 +4,11 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session');
-var app = express();
+var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
+var app = express();
 
 // configuration ===========================================
 
@@ -42,8 +43,19 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
 
+// Cookie config
 app.use(cookieParser(secretsConfig.cookieSecret)); // populates req.signedCookies
-app.use(cookieSession(secretsConfig.sessionSecret)); // populates req.session, needed for CSRF
+app.use(cookieSession({
+  secret: secretsConfig.sessionSecret,
+  resave: true,
+  saveUninitialized: true
+})); // populates req.session, needed for CSRF
+
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.engine('html', require('hbs').__express);
+
+app.use(csrf());
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes

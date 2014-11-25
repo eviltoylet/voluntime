@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en" ng-app="voluntime">
+
 <head>
   <meta charset="utf-8">
+  <meta name="csrf-token" content="{{csrfToken}}">
   <title>Voluntime - Volunteer Registry</title>
   <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="libs/fullcalendar/fullcalendar.css">
@@ -25,21 +27,24 @@
 
 <body>
   <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       FB.init({
-        appId      : '711345398948525',
-        xfbml      : true,
-        version    : 'v2.1'
+        appId: '711345398948525',
+        xfbml: true,
+        version: 'v2.1'
       });
     };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
   </script>
   <ng-include src="'views/navbar.html'"></ng-include>
   <snap-content>
@@ -47,4 +52,5 @@
   </snap-content>
   <div class="sidebar" ng-include="'views/drawer.html'"></div>
 </body>
+
 </html>
